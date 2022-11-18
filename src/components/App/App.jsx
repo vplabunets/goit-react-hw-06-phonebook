@@ -15,7 +15,8 @@ export const App = () => {
     getlocalStorage(contacts, setContacts, 'localStorageData');
     setLocalStorage(contacts, 'localStorageData');
   }, [contacts]);
-
+  //tratata
+  console.log(contacts);
   const addContacts = contact => {
     const { name } = contact;
     for (const contactCard of contacts) {
