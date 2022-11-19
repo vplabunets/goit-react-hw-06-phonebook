@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { FormInput, FormLabel } from '../Filter/Filter.styled';
 
 // const changeFilter = event => {
