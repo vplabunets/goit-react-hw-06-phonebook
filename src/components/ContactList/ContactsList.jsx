@@ -1,22 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getContacts } from 'redux/selectors';
 import { ContactItem } from '../ContactItem/ContactItem';
 import { List } from './ContactList.Styled';
-export const ContactList = ({ contacts, contactCleaner }) => {
+
+export const ContactList = () => {
+  const { contacts } = useSelector(getContacts);
   return (
     <List>
-      {contacts().map(contact => (
-        <ContactItem
-          contactCleaner={contactCleaner}
-          key={contact.id}
-          contact={contact}
-        />
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} />
       ))}
     </List>
   );
-};
-
-ContactList.propTypes = {
-  contacts: PropTypes.func.isRequired,
-  contactCleaner: PropTypes.func.isRequired,
 };

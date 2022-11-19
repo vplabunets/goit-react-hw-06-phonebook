@@ -1,12 +1,29 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { FormInput, FormLabel } from '../Filter/Filter.styled';
 
-export const Filter = ({ filter, changeFilter }) => {
+// const changeFilter = event => {
+//   setFilter(event.currentTarget.value);
+// };
+
+// const filterContacts = () => {
+//   const normalizedFilter = filter.toLowerCase();
+//   let aaa = contacts.filter(contact =>
+//     contact.name.toLowerCase().includes(normalizedFilter)
+//   );
+//   return aaa;
+// };
+
+export const Filter = () => {
+  const dispatch = useDispatch();
+  const changeFilter = evt => {
+    console.log(evt.currentTarget.value);
+  };
+
   return (
     <FormLabel>
       Find contacts by name
       <FormInput
-        value={filter}
+        // value={filter}
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -15,9 +32,4 @@ export const Filter = ({ filter, changeFilter }) => {
       />
     </FormLabel>
   );
-};
-
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  changeFilter: PropTypes.func.isRequired,
 };
