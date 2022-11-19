@@ -14,7 +14,7 @@ import { FormInput, FormLabel } from '../Filter/Filter.styled';
 // };
 
 export const Filter = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const changeFilter = evt => {
     console.log(evt.currentTarget.value);
   };
