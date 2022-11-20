@@ -10,7 +10,7 @@ import {
 } from './ContactForm.Styled';
 
 export const ContactForm = () => {
-  const { contacts } = useSelector(getContacts);
+  const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -21,7 +21,6 @@ export const ContactForm = () => {
         return alert(`${contact.name} is already contacts.`);
       }
     }
-
     dispatch(addContacts(name.value, number.value));
     form.reset();
   };

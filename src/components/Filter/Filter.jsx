@@ -1,29 +1,22 @@
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterContacts } from 'redux/contactsSlice';
+import { getFilter } from 'redux/selectors';
+
 import { FormInput, FormLabel } from '../Filter/Filter.styled';
 
-// const changeFilter = event => {
-//   setFilter(event.currentTarget.value);
-// };
-
-// const filterContacts = () => {
-//   const normalizedFilter = filter.toLowerCase();
-//   let aaa = contacts.filter(contact =>
-//     contact.name.toLowerCase().includes(normalizedFilter)
-//   );
-//   return aaa;
-// };
-
 export const Filter = () => {
-  // const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+
   const changeFilter = evt => {
-    console.log(evt.currentTarget.value);
+    dispatch(filterContacts(evt.currentTarget.value.trim()));
   };
 
   return (
     <FormLabel>
       Find contacts by name
       <FormInput
-        // value={filter}
+        value={filter}
         type="text"
         name="filter"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
