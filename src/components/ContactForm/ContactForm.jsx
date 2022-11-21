@@ -7,7 +7,7 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-} from './ContactForm1.styled';
+} from './ContactForm.styled';
 
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
