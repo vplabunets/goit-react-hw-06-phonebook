@@ -30,7 +30,6 @@ export const store = configureStore({
       },
     });
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
 });
 
 export const persistor = persistStore(store);
