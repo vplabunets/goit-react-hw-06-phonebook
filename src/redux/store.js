@@ -11,7 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
+import logger from 'redux-logger';
 const persistConfig = {
   key: 'contacts',
   storage,
@@ -26,9 +26,11 @@ export const store = configureStore({
     return getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        logger,
       },
     });
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
 });
 
 export const persistor = persistStore(store);
